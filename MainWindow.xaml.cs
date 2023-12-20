@@ -34,7 +34,7 @@ namespace JC_Click_V1
         DateTime lastKeyPressTime = DateTime.MinValue;
         object lockObject = new object();
 
-        bool blueSwitch = false;
+        bool blueSwitchOn = false;
 
         public MainWindow()
         {
@@ -121,7 +121,7 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
             Btn_SelectedBlue.Background = changeImageBrush;
 
-            blueSwitch = true;
+            blueSwitchOn = true;
 
         }
 
@@ -154,11 +154,11 @@ namespace JC_Click_V1
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if(blueSwitch == true)
+            if (blueSwitchOn)
             {
                 PlaySoundEffect("Blue Switch.wav");
             }
-            
+
         }
 
         private void PlaySoundEffect(string fileName)
