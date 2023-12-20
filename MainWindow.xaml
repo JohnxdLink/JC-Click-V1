@@ -1,0 +1,130 @@
+﻿<Window x:Class="JC_Click_V1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JC_Click_V1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        PreviewKeyDown="Window_PreviewKeyDown" Visibility="Visible">
+    <!-- ! Project       : Jc.Click Keyboard Sound Effects -->
+    <!-- ! Developer     : Castro John Christian -->
+    <!-- ! Message       : This is under development -->
+    <!-- ! Date Cretead  : 12/15/2023 -->
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="15" CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
+
+    <!-- N: Whole Content Grid -->
+    <Grid Style="{StaticResource gr_WholeGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{StaticResource rw_topHeader}"/>
+            <RowDefinition Style="{StaticResource rw_Main}"/>
+        </Grid.RowDefinitions>
+
+        <!-- N: Grid Row For Close and Logo -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource cl_Logo}"/>
+                <ColumnDefinition Style="{StaticResource cl_Close}"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- N: Close Button -->
+            <Button Grid.Column="1" x:Name="Btn_Close" Content="X" Style="{StaticResource btn_close}" Click="Btn_Close_Click" />
+
+            <!-- N: Logo -->
+            <Image Grid.Column="0" Source="resources/images/JC Click Logo.png" Style="{StaticResource img_logo}" RenderOptions.BitmapScalingMode="HighQuality" />
+        </Grid>
+        <!-- N:  of Grid For Close and Logo -->
+
+        <!-- N: Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource cl_LeftSection}"/>
+                <ColumnDefinition Style="{StaticResource cl_RightSection}"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- N: Keyboard and Select -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Style="{StaticResource rw_SelectWord}" />
+                    <RowDefinition Style="{StaticResource rw_Keyboard}" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="SELECT SWITCH" Style="{StaticResource lbl_SelectWord}" />
+
+                <Grid Grid.Row="1" Style="{StaticResource gr_Keyboards}">
+                    <Button x:Name="Btn_DefaultSwitch" Style="{StaticResource btn_keyboards}" Click="Btn_DefaultSwitch_Click" Visibility="Visible">
+                        <Button.Background>
+                            <ImageBrush ImageSource="resources/images/DefaultSwitch.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="Btn_BlueSwitch" Style="{StaticResource btn_keyboards}" Click="Btn_BlueSwitch_Click" Visibility="Hidden">
+                        <Button.Background>
+                            <ImageBrush ImageSource="resources/images/BlueSwitch.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="Btn_RedSwitch" Style="{StaticResource btn_keyboards}" Click="Btn_RedSwitch_Click" Visibility="Hidden">
+                        <Button.Background>
+                            <ImageBrush ImageSource="resources/images/RedSwitch.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="Btn_BrownSwitch" Style="{StaticResource btn_keyboards}" Click="Btn_BrownSwitch_Click" Visibility="Hidden">
+                        <Button.Background>
+                            <ImageBrush ImageSource="resources/images/BrownSwitch.png" />
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <!-- N: Grid for Description & Select Button -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Style="{StaticResource rw_Description}" />
+                        <RowDefinition Style="{StaticResource rw_SelectButton}"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- N: Grid for Description -->
+                    <Grid Grid.Row="0" Style="{StaticResource gr_Dscrpt}">
+
+                        <!-- N: Description Title and Its Description -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Style="{StaticResource rw_DscrptTitle}" />
+                            <RowDefinition Style="{StaticResource rw_Dscrpt}" />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" x:Name="Lbl_DscrptHeader" Content="Welcome To JC.Click" Style="{StaticResource lbl_DscrptHeader}" />
+
+                        <TextBlock Grid.Row="1" x:Name="Txb_Descrition" Style="{StaticResource txb_Dscrpt}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1" Style="{StaticResource gr_SelectButton}">
+                        <Button x:Name="Btn_SelectedBlue" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBlue_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                            </Button.Background>
+                        </Button>
+
+                        <Button x:Name="Btn_SelectedRed" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedRed_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                            </Button.Background>
+                        </Button>
+
+                        <Button x:Name="Btn_SelectedBrown" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBrown_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
