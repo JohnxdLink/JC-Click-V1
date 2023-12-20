@@ -28,13 +28,9 @@ namespace JC_Click_V1
         StringTexts stringText = new StringTexts();
         GetImages pathImages = new GetImages();
         ImageBrush changeImageBrush = new ImageBrush();
+        SoundEffects sfxKeyboard = new SoundEffects();
 
-        SoundPlayer soundPlayer = new SoundPlayer();
-
-        DateTime lastKeyPressTime = DateTime.MinValue;
-        object lockObject = new object();
-
-        bool blueSwitchOn = false;
+        bool[] switches = { false, false, false };
 
         KeyboardHook keyboardHook;
 
@@ -126,7 +122,8 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
             Btn_SelectedBlue.Background = changeImageBrush;
 
-            blueSwitchOn = true;
+            switches[0] = true;
+            switches[1] = false; switches[2] = false;
 
         }
 
@@ -134,12 +131,18 @@ namespace JC_Click_V1
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getRedButton()));
             Btn_SelectedRed.Background = changeImageBrush;
+
+            switches[1] = true;
+            switches[0] = false; switches[2] = false;
         }
 
         private void Btn_SelectedBrown_Click(object sender, RoutedEventArgs e)
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBrownButton()));
             Btn_SelectedBrown.Background = changeImageBrush;
+
+            switches[2] = true;
+            switches[0] = false; switches[1] = false;
         }
 
         private void backToDefaultSwitch()
@@ -159,9 +162,18 @@ namespace JC_Click_V1
 
         private void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            if (blueSwitchOn)
+            if (switches[0])
             {
-                PlaySoundEffect("Blue Switch.wav");
+                sfxKeyboard.PlaySoundEffect(stringText.getSfxBlue());
+            }
+            if (switches[1])
+            {
+                sfxKeyboard.PlaySoundEffect(stringText.getSfxRed());
+            }
+
+            if (switches[2])
+            {
+                sfxKeyboard.PlaySoundEffect(stringText.getSfxBrown());
             }
         }
 
@@ -172,43 +184,6 @@ namespace JC_Click_V1
             keyboardHook.Unhook();
         }
 
-        private async void PlaySoundEffect(string fileName)
-        {
-            try
-            {
-                DateTime currentTime = DateTime.Now;
-                TimeSpan elapsedSinceLastKeyPress = currentTime - lastKeyPressTime;
-
-                // Adjust the threshold based on your preference
-                TimeSpan threshold = TimeSpan.FromMilliseconds(70);
-
-                if (elapsedSinceLastKeyPress >= threshold)
-                {
-                    string audioFilePath = $"C:\\Users\\John Christian\\Documents\\Visual Studio\\C# Development\\JC-Click-V1\\resources\\audio\\{fileName}";
-
-                    // Use async/await to play the sound asynchronously
-                    await Task.Run(() =>
-                    {
-                        try
-                        {
-                            soundPlayer.SoundLocation = audioFilePath;
-                            soundPlayer.Load(); // Ensure the sound is loaded before playing
-                            soundPlayer.Play();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show($"Error playing sound effect: {ex.Message}");
-                        }
-                    });
-
-                    lastKeyPressTime = currentTime;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error playing sound effect: {ex.Message}");
-            }
-        }
 
 
     }

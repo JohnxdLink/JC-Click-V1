@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="classes\GetImages.cs" />
     <Compile Include="classes\KeyboardHook.cs" />
+    <Compile Include="classes\SoundEffects.cs" />
     <Compile Include="classes\StringTexts.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -148,11 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\audio\Blue Switch.wav" />
-    <Content Include="resources\audio\Red Switch.wav" />
     <Content Include="resources\audio\Brown Switch.wav" />
+    <Content Include="resources\audio\Red Switch.wav" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\errologs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
