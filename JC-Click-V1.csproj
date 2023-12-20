@@ -67,6 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="classes\GetImages.cs" />
+    <Compile Include="classes\KeyboardHook.cs" />
     <Compile Include="classes\StringTexts.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

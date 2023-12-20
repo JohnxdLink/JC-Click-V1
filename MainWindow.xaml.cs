@@ -36,11 +36,16 @@ namespace JC_Click_V1
 
         bool blueSwitchOn = false;
 
+        KeyboardHook keyboardHook;
+
         public MainWindow()
         {
             InitializeComponent();
 
             Txb_Descrition.Text = stringText.getdefaultScrpt();
+
+            keyboardHook = new KeyboardHook();
+            keyboardHook.KeyPressed += KeyboardHook_KeyPressed;
         }
 
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
@@ -152,35 +157,51 @@ namespace JC_Click_V1
             Btn_SelectedBrown.Background = default3;
         }
 
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
             if (blueSwitchOn)
             {
                 PlaySoundEffect("Blue Switch.wav");
             }
-
         }
 
-        private void PlaySoundEffect(string fileName)
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            keyboardHook.Unhook();
+        }
+
+        private async void PlaySoundEffect(string fileName)
         {
             try
             {
-                lock (lockObject)
+                DateTime currentTime = DateTime.Now;
+                TimeSpan elapsedSinceLastKeyPress = currentTime - lastKeyPressTime;
+
+                // Adjust the threshold based on your preference
+                TimeSpan threshold = TimeSpan.FromMilliseconds(70);
+
+                if (elapsedSinceLastKeyPress >= threshold)
                 {
-                    DateTime currentTime = DateTime.Now;
-                    TimeSpan elapsedSinceLastKeyPress = currentTime - lastKeyPressTime;
+                    string audioFilePath = $"C:\\Users\\John Christian\\Documents\\Visual Studio\\C# Development\\JC-Click-V1\\resources\\audio\\{fileName}";
 
-                    // Adjust the threshold based on your preference
-                    TimeSpan threshold = TimeSpan.FromMilliseconds(150);
-
-                    if (elapsedSinceLastKeyPress >= threshold)
+                    // Use async/await to play the sound asynchronously
+                    await Task.Run(() =>
                     {
-                        string audioFilePath = $"C:\\Users\\John Christian\\Documents\\Visual Studio\\C# Development\\JC-Click-V1\\resources\\audio\\{fileName}";
-                        soundPlayer.SoundLocation = audioFilePath;
-                        soundPlayer.Play();
+                        try
+                        {
+                            soundPlayer.SoundLocation = audioFilePath;
+                            soundPlayer.Load(); // Ensure the sound is loaded before playing
+                            soundPlayer.Play();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error playing sound effect: {ex.Message}");
+                        }
+                    });
 
-                        lastKeyPressTime = currentTime;
-                    }
+                    lastKeyPressTime = currentTime;
                 }
             }
             catch (Exception ex)
@@ -188,6 +209,7 @@ namespace JC_Click_V1
                 MessageBox.Show($"Error playing sound effect: {ex.Message}");
             }
         }
+
 
     }
 }

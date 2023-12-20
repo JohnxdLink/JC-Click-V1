@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:JC_Click_V1"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        PreviewKeyDown="Window_PreviewKeyDown" Visibility="Visible">
+        Visibility="Visible">
     <!-- ! Project       : Jc.Click Keyboard Sound Effects -->
     <!-- ! Developer     : Castro John Christian -->
     <!-- ! Message       : This is under development -->
