@@ -141,6 +141,7 @@ namespace JC_Click_V1
         private void Btn_SelectedBlue_Click(object sender, RoutedEventArgs e)
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
+            changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedBlue.Background = changeImageBrush;
 
             switches[0] = true;
@@ -151,6 +152,7 @@ namespace JC_Click_V1
         private void Btn_SelectedRed_Click(object sender, RoutedEventArgs e)
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getRedButton()));
+            changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedRed.Background = changeImageBrush;
 
             switches[1] = true;
@@ -160,8 +162,8 @@ namespace JC_Click_V1
         private void Btn_SelectedBrown_Click(object sender, RoutedEventArgs e)
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBrownButton()));
+            changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedBrown.Background = changeImageBrush;
-
             switches[2] = true;
             switches[0] = false; switches[1] = false;
         }
@@ -203,6 +205,21 @@ namespace JC_Click_V1
             base.OnClosed(e);
 
             keyboardHook.Unhook();
+        }
+
+        private void Btn_Low_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Med_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_High_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }

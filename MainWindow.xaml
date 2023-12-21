@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Visibility="Visible" Icon="resources/images/RedSwitch.ico" ShowInTaskbar="False">
-    
+
     <!-- ! Project       : Jc.Click Keyboard Sound Effects -->
     <!-- ! Developer     : Castro John Christian -->
     <!-- ! Message       : This is under development -->
@@ -16,7 +16,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="15" CaptionHeight="0" />
     </WindowChrome.WindowChrome>
-    
+
     <!-- N: Whole Content Grid -->
     <Grid Style="{StaticResource gr_WholeGrid}">
 
@@ -106,24 +106,38 @@
                         <TextBlock Grid.Row="1" x:Name="Txb_Descrition" Style="{StaticResource txb_Dscrpt}" />
                     </Grid>
 
-                    <Grid Grid.Row="1" Style="{StaticResource gr_SelectButton}">
-                        <Button x:Name="Btn_SelectedBlue" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBlue_Click">
-                            <Button.Background>
-                                <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
-                            </Button.Background>
-                        </Button>
+                    <Grid Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="360"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <Button x:Name="Btn_SelectedRed" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedRed_Click">
-                            <Button.Background>
-                                <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
-                            </Button.Background>
-                        </Button>
+                            <StackPanel Grid.Column="0" Style="{StaticResource stk_Buttons}">
+                                <Label Content="Volume" FontFamily="Arial" FontSize="16" Foreground="#ffffff" FontWeight="Bold" />
+                                <Button x:Name="Btn_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" Click="Btn_Low_Volume_Click" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" Click="Btn_Med_Volume_Click" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_High_Volume" Content="High" Style="{StaticResource btn_volumes}" Click="Btn_High_Volume_Click" />
+                            </StackPanel>
 
-                        <Button x:Name="Btn_SelectedBrown" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBrown_Click">
-                            <Button.Background>
-                                <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
-                            </Button.Background>
-                        </Button>
+                            <Button Grid.Column="1" x:Name="Btn_SelectedBlue" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBlue_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                                </Button.Background>
+                            </Button>
+
+                            <Button Grid.Column="1" x:Name="Btn_SelectedRed" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedRed_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                                </Button.Background>
+                            </Button>
+
+                            <Button Grid.Column="1" x:Name="Btn_SelectedBrown" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBrown_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="resources/images/ButtonSelectDefault.png" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                                </Button.Background>
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
@@ -131,5 +145,5 @@
         <tb:TaskbarIcon x:Name="MyNotifyIcon" IconSource="resources/images/RedSwitch.ico"/>
     </Grid>
 
-    
+
 </Window>

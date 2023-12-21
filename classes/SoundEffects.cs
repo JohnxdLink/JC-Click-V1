@@ -8,13 +8,14 @@ namespace JC_Click_V1.classes
     class SoundEffects
     {
         SoundPlayer soundPlayer = new SoundPlayer();
-
+     
         DateTime lastKeyPressTime = DateTime.MinValue;
 
         public async void PlaySoundEffect(string fileName)
         {
             try
             {
+
                 DateTime currentTime = DateTime.Now;
                 TimeSpan elapsedSinceLastKeyPress = currentTime - lastKeyPressTime;
 

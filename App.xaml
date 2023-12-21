@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="styles/imageStyles.xaml" />
                 <ResourceDictionary Source="styles/labelStyles.xaml" />
                 <ResourceDictionary Source="styles/textBlockStyles.xaml" />
+                <ResourceDictionary Source="styles/stackPanelStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

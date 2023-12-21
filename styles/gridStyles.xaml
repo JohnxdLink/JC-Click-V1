@@ -12,11 +12,4 @@
     <Style TargetType="Grid" x:Key="gr_Dscrpt">
         <Setter Property="Margin" Value="0, 0, 20, 0" />
     </Style>
-
-    <Style TargetType="Grid" x:Key="gr_SelectButton">
-        <Setter Property="Width" Value="230" />
-        <Setter Property="Height" Value="98" />
-        <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
 </ResourceDictionary>
