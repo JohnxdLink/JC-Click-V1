@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:JC_Click_V1"
+        xmlns:local="clr-namespace:JC_Click_V1" xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Visibility="Visible">
+        Visibility="Visible" Icon="resources/images/RedSwitch.ico" ShowInTaskbar="False">
+    
     <!-- ! Project       : Jc.Click Keyboard Sound Effects -->
     <!-- ! Developer     : Castro John Christian -->
     <!-- ! Message       : This is under development -->
@@ -15,9 +16,10 @@
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="15" CaptionHeight="0" />
     </WindowChrome.WindowChrome>
-
+    
     <!-- N: Whole Content Grid -->
     <Grid Style="{StaticResource gr_WholeGrid}">
+
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource rw_topHeader}"/>
             <RowDefinition Style="{StaticResource rw_Main}"/>
@@ -126,5 +128,8 @@
                 </Grid>
             </Grid>
         </Grid>
+        <tb:TaskbarIcon x:Name="MyNotifyIcon" IconSource="resources/images/RedSwitch.ico"/>
     </Grid>
+
+    
 </Window>

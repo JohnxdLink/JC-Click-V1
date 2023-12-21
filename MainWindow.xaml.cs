@@ -42,6 +42,27 @@ namespace JC_Click_V1
 
             keyboardHook = new KeyboardHook();
             keyboardHook.KeyPressed += KeyboardHook_KeyPressed;
+
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            MyNotifyIcon.TrayMouseDoubleClick += MyNotifyIcon_TrayMouseDoubleClick;
+        }
+
+        private void MyNotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            // Handle double-click on the tray icon (show/hide the window, for example)
+            if (WindowState == WindowState.Minimized)
+            {
+                WindowState = WindowState.Normal;
+                Activate();
+            }
+            else
+            {
+                WindowState = WindowState.Minimized;
+            }
         }
 
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
@@ -183,8 +204,6 @@ namespace JC_Click_V1
 
             keyboardHook.Unhook();
         }
-
-
 
     }
 }
