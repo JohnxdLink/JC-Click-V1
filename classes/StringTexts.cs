@@ -12,9 +12,6 @@ namespace JC_Click_V1.classes
         private String blueDscrpt = "Upgrade your typing experience with the blue switch keyboard! Hear the satisfying click, feel the tactile response, and boost your productivity. Try it for a typing sensation like no other!";
         private String redDscrpt = "Dominate your game with red switches – a smooth, linear design for precise gaming actions. Enjoy a quiet yet powerful typing experience, perfect for focused sessions and a competitive edge. Upgrade to red switches and elevate your gaming prowess!";
         private String brownDscrpt = "Unlock versatility with brown switches! Perfect for typing and gaming, they provide a tactile bump for feedback without the audible click, offering a satisfying and quiet experience. Elevate your typing and gaming with the best of both worlds – choose brown switches for a balanced and enjoyable keyboard experience.";
-        private String sfxBlueSwitch = "Blue Switch.wav";
-        private String sfxRedSwitch = "Red Switch.wav";
-        private String sfxBrownSwitch = "Brown Switch.wav";
 
         public String getdefaultScrpt()
         {
@@ -36,19 +33,5 @@ namespace JC_Click_V1.classes
             return brownDscrpt;
         }
 
-        public String getSfxBlue()
-        {
-            return sfxBlueSwitch;
-        }
-
-        public String getSfxRed()
-        {
-            return sfxRedSwitch;
-        }
-
-        public String getSfxBrown()
-        {
-            return sfxBrownSwitch;
-        }
     }
 }

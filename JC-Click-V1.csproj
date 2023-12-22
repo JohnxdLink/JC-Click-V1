@@ -152,9 +152,15 @@
     <Resource Include="resources\images\ButtonSelectRed.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\audio\Blue Switch.wav" />
-    <Content Include="resources\audio\Brown Switch.wav" />
-    <Content Include="resources\audio\Red Switch.wav" />
+    <Content Include="resources\audio\Blue Switch 100 Volume.wav" />
+    <Content Include="resources\audio\Blue Switch 20 Volume.wav" />
+    <Content Include="resources\audio\Blue Switch 50 Volume.wav" />
+    <Content Include="resources\audio\Brown Switch 100 Volume.wav" />
+    <Content Include="resources\audio\Brown Switch 20 Volume.wav" />
+    <Content Include="resources\audio\Brown Switch 50 Volume.wav" />
+    <Content Include="resources\audio\Red Switch 100 Volume.wav" />
+    <Content Include="resources\audio\Red Switch 20 Volume.wav" />
+    <Content Include="resources\audio\Red Switch 50 Volume.wav" />
     <Resource Include="resources\images\RedSwitch.ico" />
   </ItemGroup>
   <ItemGroup>

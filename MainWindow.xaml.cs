@@ -30,8 +30,6 @@ namespace JC_Click_V1
         ImageBrush changeImageBrush = new ImageBrush();
         SoundEffects sfxKeyboard = new SoundEffects();
 
-        bool[] switches = { false, false, false };
-
         KeyboardHook keyboardHook;
 
         public MainWindow()
@@ -53,7 +51,7 @@ namespace JC_Click_V1
 
         private void MyNotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            // Handle double-click on the tray icon (show/hide the window, for example)
+            // N: Handle double-click on the tray icon (show/hide the window, for example)
             if (WindowState == WindowState.Minimized)
             {
                 WindowState = WindowState.Normal;
@@ -144,10 +142,6 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedBlue.Background = changeImageBrush;
-
-            switches[0] = true;
-            switches[1] = false; switches[2] = false;
-
         }
 
         private void Btn_SelectedRed_Click(object sender, RoutedEventArgs e)
@@ -155,9 +149,6 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getRedButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedRed.Background = changeImageBrush;
-
-            switches[1] = true;
-            switches[0] = false; switches[2] = false;
         }
 
         private void Btn_SelectedBrown_Click(object sender, RoutedEventArgs e)
@@ -165,8 +156,6 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBrownButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedBrown.Background = changeImageBrush;
-            switches[2] = true;
-            switches[0] = false; switches[1] = false;
         }
 
         private void backToDefaultSwitch()
@@ -178,9 +167,9 @@ namespace JC_Click_V1
             default1.ImageSource = new BitmapImage(new Uri(pathImages.getDefaultButton()));
             default1.Stretch = Stretch.Uniform;
             default2.ImageSource = new BitmapImage(new Uri(pathImages.getDefaultButton()));
-            default1.Stretch = Stretch.Uniform;
+            default2.Stretch = Stretch.Uniform;
             default3.ImageSource = new BitmapImage(new Uri(pathImages.getDefaultButton()));
-            default1.Stretch = Stretch.Uniform;
+            default3.Stretch = Stretch.Uniform;
 
             Btn_SelectedBlue.Background = default1;
             Btn_SelectedRed.Background = default2;
@@ -189,19 +178,7 @@ namespace JC_Click_V1
 
         private void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            if (switches[0])
-            {
-                sfxKeyboard.PlaySoundEffect(stringText.getSfxBlue());
-            }
-            if (switches[1])
-            {
-                sfxKeyboard.PlaySoundEffect(stringText.getSfxRed());
-            }
 
-            if (switches[2])
-            {
-                sfxKeyboard.PlaySoundEffect(stringText.getSfxBrown());
-            }
         }
 
         protected override void OnClosed(EventArgs e)

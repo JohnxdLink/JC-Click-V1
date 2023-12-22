@@ -137,9 +137,9 @@
 
                             <StackPanel Grid.Column="0" Style="{StaticResource stk_Buttons}">
                                 <Label Content="Volume" FontFamily="Arial" FontSize="16" Foreground="#ffffff" FontWeight="Bold" />
-                                <Button x:Name="Btn_Red_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" Margin="0, 0, 10, 0" />
-                                <Button x:Name="Btn_Red_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" Margin="0, 0, 10, 0" />
-                                <Button x:Name="Btn_Red_High_Volume" Content="High" Style="{StaticResource btn_volumes}" />
+                                <Button x:Name="Btn_Red_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" BorderBrush="#ff0000" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_Red_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" BorderBrush="#ff0000" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_Red_High_Volume" Content="High" Style="{StaticResource btn_volumes}" BorderBrush="#ff0000" />
                             </StackPanel>
 
                             <Button Grid.Column="1" x:Name="Btn_SelectedRed" Style="{StaticResource btn_keyboards}" Click="Btn_SelectedRed_Click">
@@ -159,9 +159,9 @@
 
                             <StackPanel Grid.Column="0" Style="{StaticResource stk_Buttons}">
                                 <Label Content="Volume" FontFamily="Arial" FontSize="16" Foreground="#ffffff" FontWeight="Bold" />
-                                <Button x:Name="Btn_Brown_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" Margin="0, 0, 10, 0" />
-                                <Button x:Name="Btn_Brown_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" Margin="0, 0, 10, 0" />
-                                <Button x:Name="Btn_Brown_High_Volume" Content="High" Style="{StaticResource btn_volumes}" />
+                                <Button x:Name="Btn_Brown_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" BorderBrush="#964B00" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_Brown_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" BorderBrush="#964B00" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_Brown_High_Volume" Content="High" Style="{StaticResource btn_volumes}" BorderBrush="#964B00" />
                             </StackPanel>
 
                             <Button Grid.Column="1" x:Name="Btn_SelectedBrown" Style="{StaticResource btn_keyboards}" Click="Btn_SelectedBrown_Click">
