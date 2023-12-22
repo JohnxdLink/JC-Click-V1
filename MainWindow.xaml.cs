@@ -24,34 +24,48 @@ namespace JC_Click_V1
     /// </summary>
     public partial class MainWindow : Window
     {
+        // N: Array of color codes used in the application.
         String[] colors = { "#0000ff", "#ff0000", "#964B00", "#ffffff" };
+
+        // N: Instance of StringTexts for managing string resources.
         StringTexts stringText = new StringTexts();
+        // N: Instance of GetImages for managing image paths.
         GetImages pathImages = new GetImages();
+        // N: Instance of ImageBrush for changing button backgrounds.
         ImageBrush changeImageBrush = new ImageBrush();
+        // N: Instance of SoundEffects for managing keyboard sound effects.
         SoundEffects sfxKeyboard = new SoundEffects();
 
+        // N: Instance of KeyboardHook for handling keyboard events.
         KeyboardHook keyboardHook;
 
+        // N: Constructor for the main window.
         public MainWindow()
         {
             InitializeComponent();
 
+            // N: Set the default script in the text box.
             Txb_Descrition.Text = stringText.getdefaultScrpt();
 
+            // N: Initialize the keyboard hook and subscribe to the KeyPressed event.
             keyboardHook = new KeyboardHook();
             keyboardHook.KeyPressed += KeyboardHook_KeyPressed;
 
+            // N: Subscribe to the Loaded event.
             Loaded += MainWindow_Loaded;
         }
 
+        // N: Event handler for the Loaded event.
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            // N: Subscribe to the TrayMouseDoubleClick event of the system tray icon.
             MyNotifyIcon.TrayMouseDoubleClick += MyNotifyIcon_TrayMouseDoubleClick;
         }
 
+        // N: Event handler for the TrayMouseDoubleClick event of the system tray icon.
         private void MyNotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            // N: Handle double-click on the tray icon (show/hide the window, for example)
+            // N: Handle double-click on the tray icon (show/hide the window, for example).
             if (WindowState == WindowState.Minimized)
             {
                 WindowState = WindowState.Normal;
@@ -63,8 +77,10 @@ namespace JC_Click_V1
             }
         }
 
+        // N: Event handler for the Close button click event.
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
         {
+            // N: Shutdown the application.
             Application.Current.Shutdown();
         }
 
@@ -188,5 +204,49 @@ namespace JC_Click_V1
             keyboardHook.Unhook();
         }
 
+        private void Btn_Blue_Low_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Blue_Med_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Blue_High_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Red_Low_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Red_Med_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Red_High_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Brown_Low_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Brown_Med_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Brown_High_Volume_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
