@@ -56,7 +56,7 @@
         <Setter Property="Height" Value="30" />
         <Setter Property="Background" Value="#353534" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="BorderBrush" Value="#ff0000" />
+        <Setter Property="BorderBrush" Value="#ffffff" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontFamily" Value="Arial" />

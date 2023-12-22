@@ -82,9 +82,9 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getBlueDscrpt();
 
-            Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
+            // N: Grid BLue Visibility True
+            Grid_Blue_Selection.Visibility = Visibility.Visible; Grid_Red_Selection.Visibility = Visibility.Hidden; Grid_Brown_Selection.Visibility = Visibility.Hidden;
 
-            Btn_SelectedBlue.Visibility = Visibility.Visible;
         }
 
         private void Btn_BlueSwitch_Click(object sender, RoutedEventArgs e)
@@ -99,9 +99,9 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getRedDscrpt();
 
-            Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
+            // N: Grid Red Visibility True
+            Grid_Red_Selection.Visibility = Visibility.Visible; Grid_Blue_Selection.Visibility = Visibility.Hidden; Grid_Brown_Selection.Visibility = Visibility.Hidden;
 
-            Btn_SelectedRed.Visibility = Visibility.Visible;
         }
 
         private void Btn_RedSwitch_Click(object sender, RoutedEventArgs e)
@@ -116,9 +116,9 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getBrownDscrpt();
 
-            Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBlue.Visibility = Visibility.Hidden;
+            // N: Grid Brown Visibility True
+            Grid_Brown_Selection.Visibility = Visibility.Visible; Grid_Red_Selection.Visibility = Visibility.Hidden; Grid_Blue_Selection.Visibility = Visibility.Hidden;
 
-            Btn_SelectedBrown.Visibility = Visibility.Visible;
         }
 
         private void Btn_BrownSwitch_Click(object sender, RoutedEventArgs e)
@@ -133,7 +133,8 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getdefaultScrpt();
 
-            Btn_SelectedBrown.Visibility = Visibility.Hidden; Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Hidden;
+            // N: Grid Brown Visibility True
+            Grid_Brown_Selection.Visibility = Visibility.Hidden; Grid_Red_Selection.Visibility = Visibility.Hidden; Grid_Blue_Selection.Visibility = Visibility.Hidden;
 
             backToDefaultSwitch();
         }
@@ -175,8 +176,11 @@ namespace JC_Click_V1
             ImageBrush default3 = new ImageBrush();
 
             default1.ImageSource = new BitmapImage(new Uri(pathImages.getDefaultButton()));
+            default1.Stretch = Stretch.Uniform;
             default2.ImageSource = new BitmapImage(new Uri(pathImages.getDefaultButton()));
+            default1.Stretch = Stretch.Uniform;
             default3.ImageSource = new BitmapImage(new Uri(pathImages.getDefaultButton()));
+            default1.Stretch = Stretch.Uniform;
 
             Btn_SelectedBlue.Background = default1;
             Btn_SelectedRed.Background = default2;
@@ -205,21 +209,6 @@ namespace JC_Click_V1
             base.OnClosed(e);
 
             keyboardHook.Unhook();
-        }
-
-        private void Btn_Low_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Med_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_High_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
     }
