@@ -105,6 +105,8 @@ namespace JC_Click_V1
 
             // N: Button Selected Blue
             Btn_SelectedBlue.Visibility = Visibility.Visible; Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
+
+            Btn_Low_Volume.IsEnabled = true; Btn_Med_Volume.IsEnabled = true; Btn_High_Volume.IsEnabled = true;
         }
 
         private void Btn_BlueSwitch_Click(object sender, RoutedEventArgs e)
@@ -121,6 +123,8 @@ namespace JC_Click_V1
 
             // N: Button Selected Red
             Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Visible; Btn_SelectedBrown.Visibility = Visibility.Hidden;
+
+            Btn_Low_Volume.IsEnabled = true; Btn_Med_Volume.IsEnabled = true; Btn_High_Volume.IsEnabled = true;
         }
 
         private void Btn_RedSwitch_Click(object sender, RoutedEventArgs e)
@@ -137,6 +141,8 @@ namespace JC_Click_V1
 
             // N: Button Selected Brown
             Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Visible;
+
+            Btn_Low_Volume.IsEnabled = true; Btn_Med_Volume.IsEnabled = true; Btn_High_Volume.IsEnabled = true;
         }
 
         private void Btn_BrownSwitch_Click(object sender, RoutedEventArgs e)
@@ -156,32 +162,50 @@ namespace JC_Click_V1
 
         private void Btn_SelectedBlue_Click(object sender, RoutedEventArgs e)
         {
-            changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
-            changeImageBrush.Stretch = Stretch.Uniform;
-            Btn_SelectedBlue.Background = changeImageBrush;
+            if (volumes != null)
+            {
+                changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
+                changeImageBrush.Stretch = Stretch.Uniform;
+                Btn_SelectedBlue.Background = changeImageBrush;
 
-            keyboardSwitch = stringText.getBlueSwitch() + volumes + ".wav";
-            switches[0] = true; switches[1] = false; switches[2] = false;
+                keyboardSwitch = stringText.getBlueSwitch() + volumes + ".wav";
+                switches[0] = true; switches[1] = false; switches[2] = false;
+            } else
+            {
+                MessageBox.Show("You need to select Volume First", "Jc.Click Message", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Btn_SelectedRed_Click(object sender, RoutedEventArgs e)
         {
-            changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getRedButton()));
-            changeImageBrush.Stretch = Stretch.Uniform;
-            Btn_SelectedRed.Background = changeImageBrush;
+            if (volumes != null)
+            {
+                changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getRedButton()));
+                changeImageBrush.Stretch = Stretch.Uniform;
+                Btn_SelectedRed.Background = changeImageBrush;
 
-            keyboardSwitch = stringText.getRedSwitch() + volumes + ".wav";
-            switches[0] = false; switches[1] = true; switches[2] = false;
+                keyboardSwitch = stringText.getRedSwitch() + volumes + ".wav";
+                switches[0] = false; switches[1] = true; switches[2] = false;
+            } else
+            {
+                MessageBox.Show("You need to select Volume First", "Jc.Click Message", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Btn_SelectedBrown_Click(object sender, RoutedEventArgs e)
         {
-            changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBrownButton()));
-            changeImageBrush.Stretch = Stretch.Uniform;
-            Btn_SelectedBrown.Background = changeImageBrush;
+            if (volumes != null)
+            {
+                changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBrownButton()));
+                changeImageBrush.Stretch = Stretch.Uniform;
+                Btn_SelectedBrown.Background = changeImageBrush;
 
-            keyboardSwitch = stringText.getBrownSwitch() + volumes + ".wav";
-            switches[0] = false; switches[1] = false; switches[2] = true;
+                keyboardSwitch = stringText.getBrownSwitch() + volumes + ".wav";
+                switches[0] = false; switches[1] = false; switches[2] = true;
+            } else
+            {
+                MessageBox.Show("You need to select Volume First", "Jc.Click Message", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void backToDefaultSwitch()
@@ -213,17 +237,17 @@ namespace JC_Click_V1
 
         private void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            if(switches[0])
+            if (switches[0])
             {
                 sfxKeyboard.PlaySoundEffect(keyboardSwitch);
             }
 
-            if(switches[1])
+            if (switches[1])
             {
                 sfxKeyboard.PlaySoundEffect(keyboardSwitch);
             }
 
-            if(switches[2])
+            if (switches[2])
             {
                 sfxKeyboard.PlaySoundEffect(keyboardSwitch);
             }
@@ -238,16 +262,22 @@ namespace JC_Click_V1
 
         private void Btn_Low_Volume_Click(object sender, RoutedEventArgs e)
         {
+            Btn_Low_Volume.IsEnabled = true; Btn_Med_Volume.IsEnabled = false; Btn_High_Volume.IsEnabled = false;
+
             volumes = stringText.getLowVolume();
         }
 
         private void Btn_Med_Volume_Click(object sender, RoutedEventArgs e)
         {
+            Btn_Low_Volume.IsEnabled = false; Btn_Med_Volume.IsEnabled = true; Btn_High_Volume.IsEnabled = false;
+
             volumes = stringText.getMedVolume();
         }
 
         private void Btn_High_Volume_Click(object sender, RoutedEventArgs e)
         {
+            Btn_Low_Volume.IsEnabled = false; Btn_Med_Volume.IsEnabled = false; Btn_High_Volume.IsEnabled = true;
+
             volumes = stringText.getHighVolume();
         }
     }
