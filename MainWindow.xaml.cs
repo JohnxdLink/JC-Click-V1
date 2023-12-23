@@ -96,9 +96,11 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getBlueDscrpt();
 
-            // N: Grid BLue Visibility True
-            Grid_Blue_Selection.Visibility = Visibility.Visible; Grid_Red_Selection.Visibility = Visibility.Hidden; Grid_Brown_Selection.Visibility = Visibility.Hidden;
-
+            // N: Stack Volume Visible
+            Stck_Volumes.Visibility = Visibility.Visible;
+            
+            // N: Button Selected Blue
+            Btn_SelectedBlue.Visibility = Visibility.Visible; Btn_SelectedRed.Visibility= Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
         }
 
         private void Btn_BlueSwitch_Click(object sender, RoutedEventArgs e)
@@ -113,9 +115,8 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getRedDscrpt();
 
-            // N: Grid Red Visibility True
-            Grid_Red_Selection.Visibility = Visibility.Visible; Grid_Blue_Selection.Visibility = Visibility.Hidden; Grid_Brown_Selection.Visibility = Visibility.Hidden;
-
+            // N: Button Selected Red
+            Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Visible; Btn_SelectedBrown.Visibility = Visibility.Hidden;
         }
 
         private void Btn_RedSwitch_Click(object sender, RoutedEventArgs e)
@@ -130,9 +131,8 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getBrownDscrpt();
 
-            // N: Grid Brown Visibility True
-            Grid_Brown_Selection.Visibility = Visibility.Visible; Grid_Red_Selection.Visibility = Visibility.Hidden; Grid_Blue_Selection.Visibility = Visibility.Hidden;
-
+            // N: Button Selected Brown
+            Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Visible;
         }
 
         private void Btn_BrownSwitch_Click(object sender, RoutedEventArgs e)
@@ -147,9 +147,6 @@ namespace JC_Click_V1
 
             Txb_Descrition.Text = stringText.getdefaultScrpt();
 
-            // N: Grid Brown Visibility True
-            Grid_Brown_Selection.Visibility = Visibility.Hidden; Grid_Red_Selection.Visibility = Visibility.Hidden; Grid_Blue_Selection.Visibility = Visibility.Hidden;
-
             backToDefaultSwitch();
         }
 
@@ -157,7 +154,7 @@ namespace JC_Click_V1
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
-            Btn_SelectedBlue.Background = changeImageBrush;
+            Btn_SelectedBlue.Background = changeImageBrush;          
         }
 
         private void Btn_SelectedRed_Click(object sender, RoutedEventArgs e)
@@ -190,6 +187,12 @@ namespace JC_Click_V1
             Btn_SelectedBlue.Background = default1;
             Btn_SelectedRed.Background = default2;
             Btn_SelectedBrown.Background = default3;
+
+            // N: Stack Volume Hidden
+            Stck_Volumes.Visibility = Visibility.Hidden;
+
+            // N: Buttons back to Default
+            Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
         }
 
         private void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
@@ -204,49 +207,5 @@ namespace JC_Click_V1
             keyboardHook.Unhook();
         }
 
-        private void Btn_Blue_Low_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Blue_Med_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Blue_High_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Red_Low_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Red_Med_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Red_High_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Brown_Low_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Brown_Med_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Brown_High_Volume_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
