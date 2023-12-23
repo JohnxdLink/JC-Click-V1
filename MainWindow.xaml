@@ -115,9 +115,9 @@
 
                             <StackPanel Grid.Column="0" x:Name="Stck_Volumes" Style="{StaticResource stk_Buttons}" Visibility="Hidden">
                                 <Label Content="Volume" FontFamily="Arial" FontSize="16" Foreground="#ffffff" FontWeight="Bold" />
-                                <Button x:Name="Btn_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" Margin="0, 0, 10, 0" />
-                                <Button x:Name="Btn_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" Margin="0, 0, 10, 0" />
-                                <Button x:Name="Btn_High_Volume" Content="High" Style="{StaticResource btn_volumes}" />
+                                <Button x:Name="Btn_Low_Volume" Content="Low" Style="{StaticResource btn_volumes}" Click="Btn_Low_Volume_Click" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_Med_Volume" Content="Med" Style="{StaticResource btn_volumes}" Click="Btn_Med_Volume_Click" Margin="0, 0, 10, 0" />
+                                <Button x:Name="Btn_High_Volume" Content="High" Style="{StaticResource btn_volumes}" Click="Btn_High_Volume_Click" />
                             </StackPanel>
 
                             <Button Grid.Column="1" x:Name="Btn_SelectedBlue" Style="{StaticResource btn_keyboards}" Visibility="Hidden" Click="Btn_SelectedBlue_Click">

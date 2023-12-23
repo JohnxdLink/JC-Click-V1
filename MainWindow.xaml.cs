@@ -26,6 +26,10 @@ namespace JC_Click_V1
     {
         // N: Array of color codes used in the application.
         String[] colors = { "#0000ff", "#ff0000", "#964B00", "#ffffff" };
+        String volumes = null;
+        String keyboardSwitch = null;
+
+        bool[] switches = { false, false, false };
 
         // N: Instance of StringTexts for managing string resources.
         StringTexts stringText = new StringTexts();
@@ -98,9 +102,9 @@ namespace JC_Click_V1
 
             // N: Stack Volume Visible
             Stck_Volumes.Visibility = Visibility.Visible;
-            
+
             // N: Button Selected Blue
-            Btn_SelectedBlue.Visibility = Visibility.Visible; Btn_SelectedRed.Visibility= Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
+            Btn_SelectedBlue.Visibility = Visibility.Visible; Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
         }
 
         private void Btn_BlueSwitch_Click(object sender, RoutedEventArgs e)
@@ -154,7 +158,10 @@ namespace JC_Click_V1
         {
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBlueButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
-            Btn_SelectedBlue.Background = changeImageBrush;          
+            Btn_SelectedBlue.Background = changeImageBrush;
+
+            keyboardSwitch = stringText.getBlueSwitch() + volumes + ".wav";
+            switches[0] = true; switches[1] = false; switches[2] = false;
         }
 
         private void Btn_SelectedRed_Click(object sender, RoutedEventArgs e)
@@ -162,6 +169,9 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getRedButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedRed.Background = changeImageBrush;
+
+            keyboardSwitch = stringText.getRedSwitch() + volumes + ".wav";
+            switches[0] = false; switches[1] = true; switches[2] = false;
         }
 
         private void Btn_SelectedBrown_Click(object sender, RoutedEventArgs e)
@@ -169,6 +179,9 @@ namespace JC_Click_V1
             changeImageBrush.ImageSource = new BitmapImage(new Uri(pathImages.getBrownButton()));
             changeImageBrush.Stretch = Stretch.Uniform;
             Btn_SelectedBrown.Background = changeImageBrush;
+
+            keyboardSwitch = stringText.getBrownSwitch() + volumes + ".wav";
+            switches[0] = false; switches[1] = false; switches[2] = true;
         }
 
         private void backToDefaultSwitch()
@@ -193,11 +206,27 @@ namespace JC_Click_V1
 
             // N: Buttons back to Default
             Btn_SelectedBlue.Visibility = Visibility.Hidden; Btn_SelectedRed.Visibility = Visibility.Hidden; Btn_SelectedBrown.Visibility = Visibility.Hidden;
+
+            // N: All Switches back to Default
+            switches[0] = false; switches[1] = false; switches[2] = false;
         }
 
         private void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
+            if(switches[0])
+            {
+                sfxKeyboard.PlaySoundEffect(keyboardSwitch);
+            }
 
+            if(switches[1])
+            {
+                sfxKeyboard.PlaySoundEffect(keyboardSwitch);
+            }
+
+            if(switches[2])
+            {
+                sfxKeyboard.PlaySoundEffect(keyboardSwitch);
+            }
         }
 
         protected override void OnClosed(EventArgs e)
@@ -207,5 +236,19 @@ namespace JC_Click_V1
             keyboardHook.Unhook();
         }
 
+        private void Btn_Low_Volume_Click(object sender, RoutedEventArgs e)
+        {
+            volumes = stringText.getLowVolume();
+        }
+
+        private void Btn_Med_Volume_Click(object sender, RoutedEventArgs e)
+        {
+            volumes = stringText.getMedVolume();
+        }
+
+        private void Btn_High_Volume_Click(object sender, RoutedEventArgs e)
+        {
+            volumes = stringText.getHighVolume();
+        }
     }
 }
